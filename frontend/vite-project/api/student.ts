@@ -1,6 +1,6 @@
 // student_api.js - API service for student operations
 
-const API_BASE_URL = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:8000';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
 
 // Helper function to get auth headers
 const getAuthHeaders = () => {
