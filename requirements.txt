@@ -53,3 +53,4 @@ typing_extensions
 urllib3
 uvicorn
 zstandard
+psycopg2-binary
