@@ -324,9 +324,9 @@
 // };
 
 // export default StudentMarks;
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { studentAPI } from "../../api/student";
-
+import { useNavigate } from "react-router-dom";
 const StudentMarks = ({ onUpdate }) => {
   const [marks, setMarks] = useState({});
   const [currentSemester, setCurrentSemester] = useState(null);
@@ -334,7 +334,7 @@ const StudentMarks = ({ onUpdate }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [saving, setSaving] = useState(false);
-
+const nav=useNavigate();
   const semesters = [
     { key: "sem1_marks", label: "Semester 1", semNo: 1, apiKey: "sem1" },
     { key: "sem2_marks", label: "Semester 2", semNo: 2, apiKey: "sem2" },
@@ -408,7 +408,7 @@ const StudentMarks = ({ onUpdate }) => {
         setCurrentSemester(sem);
       } catch (err) {
         console.error("Failed to fetch data", err);
-        setError("Failed to load marks data. Please try again.");
+        setError("Set semster first. " + (err.message || "Failed to load marks data. Please try again."));
       } finally {
         setLoading(false);
       }

@@ -23,7 +23,7 @@ const handleResponse = async (response) => {
 export const studentAPI = {
   // Authentication
   register: async (studentData) => {
-    const response = await fetch(`${API_BASE_URL}/students/register`, {
+    const response = await fetch(`${API_BASE_URL}students/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(studentData)
@@ -33,13 +33,13 @@ export const studentAPI = {
 
   // Profile Management
   getProfile: async () => {
-    const response = await fetch(`${API_BASE_URL}/students/profile`, {
+    const response = await fetch(`${API_BASE_URL}students/profile`, {
       headers: getAuthHeaders()
     });
     return handleResponse(response);
   },
 updateProfile: async (profileData) => {
-    const response = await fetch(`${API_BASE_URL}/students/profile`, {
+    const response = await fetch(`${API_BASE_URL}students/profile`, {
       method: 'PUT',
       headers: getAuthHeaders(),
       body: JSON.stringify(profileData)
@@ -48,7 +48,7 @@ updateProfile: async (profileData) => {
   },
 
   getDashboard: async () => {
-    const response = await fetch(`${API_BASE_URL}/students/dashboard`, {
+    const response = await fetch(`${API_BASE_URL}students/dashboard`, {
       headers: getAuthHeaders()
     });
     return handleResponse(response);
@@ -56,7 +56,7 @@ updateProfile: async (profileData) => {
 
   // Teacher Assignment
   assignTeacher: async (teacherId) => {
-    const response = await fetch(`${API_BASE_URL}/students/assign-teacher`, {
+    const response = await fetch(`${API_BASE_URL}students/assign-teacher`, {
       method: 'POST',
       headers: getAuthHeaders(),
       body: JSON.stringify({ teacher_id: teacherId })
@@ -66,7 +66,7 @@ updateProfile: async (profileData) => {
 
   // Semester Management
   updateSemester: async (currentSemester) => {
-    const response = await fetch(`${API_BASE_URL}/students/semester`, {
+    const response = await fetch(`${API_BASE_URL}students/semester`, {
       method: 'PUT',
       headers: getAuthHeaders(),
       body: JSON.stringify({ current_semester: currentSemester })
@@ -76,14 +76,14 @@ updateProfile: async (profileData) => {
 
   // Marks Management
   getMarks: async () => {
-    const response = await fetch(`${API_BASE_URL}/students/marks`, {
+    const response = await fetch(`${API_BASE_URL}students/marks`, {
       headers: getAuthHeaders()
     });
     return handleResponse(response);
   },
 
   updateMarks: async (marksData) => {
-    const response = await fetch(`${API_BASE_URL}/students/marks`, {
+    const response = await fetch(`${API_BASE_URL}students/marks`, {
       method: 'PUT',
       headers: getAuthHeaders(),
       body: JSON.stringify(marksData)
@@ -93,14 +93,14 @@ updateProfile: async (profileData) => {
 
   // Questions Management
   getQuestions: async () => {
-    const response = await fetch(`${API_BASE_URL}/students/questions`, {
+    const response = await fetch(`${API_BASE_URL}students/questions`, {
       headers: getAuthHeaders()
     });
     return handleResponse(response);
   },
 
   updateAnswers: async (answersData) => {
-    const response = await fetch(`${API_BASE_URL}/students/questions/answers`, {
+    const response = await fetch(`${API_BASE_URL}students/questions/answers`, {
       method: 'PUT',
       headers: getAuthHeaders(),
       body: JSON.stringify(answersData)
@@ -110,14 +110,14 @@ updateProfile: async (profileData) => {
 
   // Interests Management
   getInterests: async () => {
-    const response = await fetch(`${API_BASE_URL}/students/interests`, {
+    const response = await fetch(`${API_BASE_URL}students/interests`, {
       headers: getAuthHeaders()
     });
     return handleResponse(response);
   },
 
   createInterest: async (interestData) => {
-    const response = await fetch(`${API_BASE_URL}/students/interests`, {
+    const response = await fetch(`${API_BASE_URL}students/interests`, {
       method: 'POST',
       headers: getAuthHeaders(),
       body: JSON.stringify(interestData)
@@ -126,7 +126,7 @@ updateProfile: async (profileData) => {
   },
 
   updateInterest: async (interestId, interestData) => {
-    const response = await fetch(`${API_BASE_URL}/students/interests/${interestId}`, {
+    const response = await fetch(`${API_BASE_URL}students/interests/${interestId}`, {
       method: 'PUT',
       headers: getAuthHeaders(),
       body: JSON.stringify(interestData)
@@ -135,7 +135,7 @@ updateProfile: async (profileData) => {
   },
 
   deleteInterest: async (interestId) => {
-    const response = await fetch(`${API_BASE_URL}/students/interests/${interestId}`, {
+    const response = await fetch(`${API_BASE_URL}students/interests/${interestId}`, {
       method: 'DELETE',
       headers: getAuthHeaders()
     });
@@ -143,13 +143,13 @@ updateProfile: async (profileData) => {
   },
 
 getCurrentSemester: async () => {
-    const response = await fetch(`${API_BASE_URL}/students/getcurrentsemister`, {
+    const response = await fetch(`${API_BASE_URL}students/getcurrentsemister`, {
       headers: getAuthHeaders()
     });
     return handleResponse(response);
   },
 getAllTeachers: async () => {
-    const response = await fetch(`${API_BASE_URL}/students/getteachers`, {
+    const response = await fetch(`${API_BASE_URL}students/getteachers`, {
       headers: getAuthHeaders()
     });
     return handleResponse(response);
