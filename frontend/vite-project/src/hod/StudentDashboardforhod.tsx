@@ -219,7 +219,7 @@ export default function StudentDashboardforhod() {
   const [activeTab, setActiveTab] = useState('overview');
   const studentId = useParams().id; // Get student ID from URL params
   // Groq API Key - In production, store this securely
-  const GROQ_API_KEY = "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";
+  const GROQ_API_KEY =import.meta.env.VITE_API_GROQ_API_KEY;
   
   useEffect(() => {
     const fetchAllData = async () => {
