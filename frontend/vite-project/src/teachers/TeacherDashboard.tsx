@@ -6,7 +6,8 @@ import {
   setBulkQuestionsBySemester,
   getSemesterStats 
 } from '../../api/teacher';
-
+import { useNavigate } from 'react-router-dom';
+import StudentDashboard from '../students/StudentDashboard';
 const TeacherDashboard = () => {
   const [teacher, setTeacher] = useState(null);
   const [selectedSemester, setSelectedSemester] = useState(1);
@@ -23,7 +24,7 @@ const TeacherDashboard = () => {
     question4: '',
     question5: ''
   });
-
+  const nav=useNavigate();
   useEffect(() => {
     loadTeacherProfile();
     loadStudentsBySemester(selectedSemester);
@@ -63,8 +64,7 @@ const TeacherDashboard = () => {
 
   const handleStudentClick = async (studentId) => {
     try {
-      const response = await getStudentDetails(studentId);
-      setSelectedStudent(response.data);
+      nav(`/student/${studentId}`);
     } catch (error) {
       console.error('Error loading student details:', error);
     }

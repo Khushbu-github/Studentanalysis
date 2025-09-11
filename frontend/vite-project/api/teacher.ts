@@ -44,8 +44,9 @@ export const getStudentsBySemester = async (semesterNum) => {
   return API.get(`teachers/students/semester/${semesterNum}`);
 };
 
-export const getStudentDetails = async (studentId) => {
-  return API.get(`teachers/students/${studentId}`);
+export const getStudentDetails = async (studentId: number) => {
+  const res = await API.get(`teachers/students/${studentId}`);
+  return res.data; // return only the data, not full axios response
 };
 
 // Questions Management

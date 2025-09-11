@@ -15,7 +15,7 @@ import {
   searchStudents,
   searchTeachers
 } from '../../api/hod';
-
+import { useNavigate } from 'react-router-dom';
 const HodDashboard = () => {
   const [activeTab, setActiveTab] = useState('overview');
   const [hod, setHod] = useState(null);
@@ -71,7 +71,7 @@ const HodDashboard = () => {
       loadReports();
     }
   }, [activeTab, selectedSemester]);
-
+const nav= useNavigate();
   const loadInitialData = async () => {
     try {
       const [hodResponse, dashboardResponse] = await Promise.all([
@@ -442,6 +442,7 @@ const HodDashboard = () => {
                     >
                       Update Marks
                     </button>
+                    <button type="button" onClick={() =>nav(`/students/${selectedStudent?.id}`)} className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Open Dashboard</button>
                   </div>
                   {/* Display existing data */}
                   {selectedStudent.questions && (

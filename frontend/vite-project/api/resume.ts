@@ -19,7 +19,7 @@ class ResumeAPI {
       const formData = new FormData();
       formData.append('file', file);
 
-      const response = await fetch(`${this.baseURL}upload/resume`, {
+      const response = await fetch(`${this.baseURL}/upload/resume`, {
         method: 'POST',
         headers: this.getAuthHeaders(),
         body: formData,
